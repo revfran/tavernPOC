@@ -1,0 +1,10 @@
+test_name: Test reading env variable
+stages: 
+  - name: Make sure we have the right ID (set env_var TEST_VAR to 1)
+    request:
+      url: "https://jsonplaceholder.typicode.com/posts/{tavern.env_vars.TEST_VAR:s}"
+      method: GET
+    response:
+      status_code: 200
+      body:
+        id: 1
